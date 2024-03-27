@@ -1,0 +1,22 @@
+.registration-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #f9f9f9;
+  }
+  
+  .registration-form .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .registration-form .form-label {
+    font-weight: bold;
+  }
+  
+  .registration-form button {
+    width: 100%;
+    margin-top: 15px;
+  }
+  
