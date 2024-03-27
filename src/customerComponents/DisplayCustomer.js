@@ -48,7 +48,9 @@ function UpdateCustomer({ customer, onUpdateCompletion }) {
 
     return (
         <>
-            <h3>Update your account:</h3>
+        <div className="container">
+            <div className="update">
+            <h3>UPDATE YOUR DETAILS</h3>
             {
                 message && <h3 className="alert alert-success">{message}</h3>
             }
@@ -58,27 +60,34 @@ function UpdateCustomer({ customer, onUpdateCompletion }) {
 
 
             <form onSubmit={handleUpdate}>
-                <p>
-                    Name: <input type="text" name="customerEmail" value={updateCustomer.customerName} onChange={handleCustomerChange} required pattern="[a-zA-Z ]{3,16}" title="Name should contain min 3 & max 16 chars , no digits and special chars allowed."></input>
-                </p>
+               <label htmlFor="customerName">CustomerName</label>
+                    <input type="text" name="customerName" value={updateCustomer.customerName} onChange={handleCustomerChange} required pattern="[a-zA-Z ]{3,16}" title="Name should contain min 3 & max 16 chars , no digits and special chars allowed."></input>
+              
 
-                <p>
-                    Email: <input type="email" name="customerEmail" value={updateCustomer.customerEmail} onChange={handleCustomerChange} disabled></input>
-                </p>
-                <p>
-                    Address: <input type="text" name="address" value={updateCustomer.address} onChange={handleCustomerChange} ></input>
-                </p>
+                    <label htmlFor="mobileNumber">MobileNumber</label>
+                   <input type="text" name="mobileNumber" value={updateCustomer.mobileNumber} onChange={handleCustomerChange}  required pattern="[0-9]{10}" title="Mobile number should contain exactly 10 digits."></input>
 
-                <p>
-                    MobileNumber: <input type="number" name="mobileNumber" value={updateCustomer.mobileNumber} onChange={handleCustomerChange}  required></input>
-                </p>
-                <p>
-                    Password: <input type="text" name="password" value={updateCustomer.password} onChange={handleCustomerChange} required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters"></input>
-                </p>
-                <button type="submit">Update Account</button>
+               <label htmlFor="customerEmail">CustomerEmail</label>
+                    <input type="email" name="customerEmail" value={updateCustomer.customerEmail} onChange={handleCustomerChange} disabled></input>
+               
+               <label htmlFor="address">Address</label>
+               <input type="text" name="address" value={updateCustomer.address} onChange={handleCustomerChange} required pattern="[a-zA-Z ]{3,16}" title="Address should contain min 3 & max 16 chars , no digits and special chars allowed."></input>
+                
+
+                
+                <label htmlFor="password">Password</label>
+                <input type="text" name="password" value={updateCustomer.password} onChange={handleCustomerChange} required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters"></input>
+                
+
+                <br>
+                </br>
+                <br></br>
+                <button type="submit">Update Account</button><br></br>
                 <button onClick={onUpdateCompletion}>Back</button>
 
             </form>
+            </div>
+            </div>
         </>
     )
 }
@@ -163,10 +172,10 @@ function DisplayCustomer() {
     
     return (
         <>
-        <div>
+        <div >
             
                
-            {customer && (
+            {customer && !isUpdate &&(
                 <div className="container">
                 <div className="row">
                     <div className="col-lg-12">
@@ -174,30 +183,30 @@ function DisplayCustomer() {
                 <table>
                   
                         <tr>
-                           <td>CustomerName:</td>
+                           <td id="head">CustomerName:</td>
                            <td>{customer.customerName}</td>
                            
                         </tr>
                  
                 
                         <tr>
-                        <td>Mobile Number:</td>
+                        <td id="head">Mobile Number:</td>
                            <td>{customer.mobileNumber}</td>
                             
                         </tr>
 
                         <tr>
-                           <td>Address:</td>
+                           <td id="head">Address:</td>
                            <td>{customer.address}</td>
                            
                         </tr>
                         <tr>
-                           <td>CustomerEmail:</td>
+                           <td id="head">CustomerEmail:</td>
                            <td>{customer.customerEmail}</td>
                            
                         </tr>
                         <tr>
-                           <td>Password:</td>
+                           <td id="head">Password:</td>
                            <td>{customer.password}</td>
                            
                         </tr>
@@ -210,8 +219,8 @@ function DisplayCustomer() {
                 <br>
                 </br>
                
-                <button onClick={() => handleUpdate(customer)}>Update</button>&nbsp;&nbsp;
-              <button onClick={() => handleDelete(customer.customerEmail)}>Delete</button>
+                <button onClick={() => handleUpdate(customer)} id="updbtn">Update</button>&nbsp;&nbsp;
+              <button onClick={() => handleDelete(customer.customerEmail)} id="delbtn">Delete</button>
 
 </div>
                       

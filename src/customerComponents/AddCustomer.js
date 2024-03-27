@@ -3,11 +3,12 @@ import CustomerService from "../services/CustomerService";
 import React from "react";
 import { Form, Button,Row } from 'react-bootstrap';
 import './AddCustomer.css';
+import { useNavigate } from "react-router-dom";
 
 
 
 
-function AddAccount(){
+function AddCustomer(){
 let[customer,setCustomer]=useState({
     "customerName":'',
     "mobileNumber":0,
@@ -19,14 +20,15 @@ let[customer,setCustomer]=useState({
 let[message,setMessage]=useState("");
 let[errorMessage,setErrorMessage]=useState("");
 const [errors, setErrors] = useState("");
+const navigate=useNavigate();
 
 const handleCustomerChange = (e) => {
     setCustomer({ ...customer, [e.target.name]: e.target.value });
 
 }
-const handleMobileNumberChange=(e)=>{
-  setCustomer({...customer,[e.target.name]:e.target.value});
-}
+// const handleMobileNumberChange=(e)=>{
+//   setCustomer({...customer,[e.target.name]:e.target.value});
+// }
 
 
 
@@ -34,22 +36,22 @@ const handleMobileNumberChange=(e)=>{
 const handleSubmit=(e)=>{
     e.preventDefault();
     console.log(customer);
-    let errors = {};
-    Object.keys(customer).forEach((key) => {
-      const inputElement = document.getElementsByName(key)[0];
-      if (!customer[key]) {
-        errors[key] = inputElement.getAttribute('title');
-      }
-    });
+    // let errors = {};
+    // Object.keys(customer).forEach((key) => {
+    //   const inputElement = document.getElementsByName(key)[0];
+    //   if (!customer[key]) {
+    //     errors[key] = inputElement.getAttribute('title');
+    //   }
+    // });
 
-    setErrors(errors);
+    // setErrors(errors);
 
-    if (Object.keys(errors).length === 0) {
-      // Form submission logic
-      console.log('Form submitted successfully');
-    }
+    // if (Object.keys(errors).length === 0) {
+    //   // Form submission logic
+    //   console.log('Form submitted successfully');
+    // }
 
-
+   
 
 
     CustomerService.addCustomer(customer).
@@ -58,6 +60,7 @@ const handleSubmit=(e)=>{
          console.log(resp.data);
          setMessage("Customer registered successfully.");
          setErrorMessage("");
+         navigate('/login');
          
 
         }
@@ -116,7 +119,7 @@ return(
 
 
   <label htmlFor="mobileNumber">MobileNumber: </label>
-  <input type="text" name="mobileNumber" id="mobileNumber" value={customer.mobileNumber} onChange={handleMobileNumberChange} required pattern="[0-9]{10}" title="Mobile number should contain only 10 digits. "></input>  
+  <input type="text" name="mobileNumber" id="mobileNumber" value={customer.mobileNumber} onChange={handleCustomerChange} required pattern="[0-9]{10}" title="Mobile number should contain only 10 digits. "></input>  
 
   <label htmlFor="address">Address: </label>
   <input type="text" name="address" id="address" value={customer.address} onChange={handleCustomerChange} required pattern="[a-zA-Z ]{3,16}" title="Address should contain min 3 & max 16 chars , no digits and special chars allowed."></input>
@@ -138,4 +141,4 @@ return(
         );
 }
 
-export default AddAccount;
+export default AddCustomer;
