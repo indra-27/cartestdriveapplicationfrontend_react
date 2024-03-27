@@ -1,0 +1,31 @@
+.card{
+    margin-right: auto;
+    margin-bottom: 20px;
+    display: flex;
+    height: 550px;
+    
+    }
+.row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2%;
+    
+}
+input{
+    height: 30px;
+    width: 200px;
+}
+.chart{
+    justify-content: center;
+    align-items: center;
+    margin-left: 25%;
+}
+.card-img-top
+{
+    margin-top: 0%;
+}
+
+body{
+    background-color: #EEEEEE;
+}
