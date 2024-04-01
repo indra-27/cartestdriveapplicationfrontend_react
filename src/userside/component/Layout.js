@@ -12,10 +12,10 @@ export default function Layout()
                         <li className="nav-item">
                             <Link to='/' className="nav-link">Home</Link>
                         </li>
-{/* 
+
                          <li className="nav-item">
-                            <Link to='/cardetail' className="nav-link">Get Car Details</Link>
-                        </li> */}
+                            <Link to='/profile' className="nav-link">Profile</Link>
+                        </li>
 
                         {/*<li className="nav-item">
                             <Link to='/account' className="nav-link">Add Accounts</Link>

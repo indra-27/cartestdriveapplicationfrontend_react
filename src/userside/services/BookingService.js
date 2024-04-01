@@ -1,20 +1,20 @@
 import {axiosInstance} from "./axios-http-client"
 class BookingService{
 
-    // getAllBookings(){
-    //     return axiosInstance.get('http://localhost:8090/accounts');
-    // }
+    getAllUserBookingByEmail(email){
+        return axiosInstance.get('http://localhost:8090/booking/user/all/'+email);
+    }
 
-    // deleteAccountById(id){
-    //     return axiosInstance.delete('http://localhost:8090/account/'+id);
-    // }
+    deleteBooking(id){
+        return axiosInstance.delete('http://localhost:8090/booking/'+id);
+    }
 
     createNewBooking(bookingInput){
         return axiosInstance.post('http://localhost:8090/booking/new',bookingInput);
     }
-    // updateAccount(account){
-    //     return axiosInstance.put('http://localhost:8090/account',account);
-    // }
+    updateBooking(bookingInput){
+        return axiosInstance.put('http://localhost:8090/booking',bookingInput);
+    }
     
 }
 

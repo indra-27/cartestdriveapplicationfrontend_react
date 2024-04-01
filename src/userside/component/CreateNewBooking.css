@@ -2,9 +2,12 @@
     /* display: flex; */
     justify-content: center;
     align-items: center;
-    margin-left: 37%;
-    margin-top: 4%;
+    
+    
 }
 /* .button{
     margin-top: 5%;
 } */
+td{
+    padding: 0px;
+}
