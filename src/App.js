@@ -1,4 +1,5 @@
 import './App.css';
+
 import UserHome from './userside/component/UserHome';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import NoPageFound from './userside/component/NoPageFound';
@@ -23,6 +24,11 @@ import CustomerService from './services/CustomerService';
 import AddCustomer from './customerComponents/AddCustomer';
 
 
+import AddRating from './AddRating';
+import RatingTable from './RatingTable';
+import CarRatingComponent from './CarRatingComponent';
+import CustomerRatingComponent from './CustomerRatingComponent';
+
 function App() {
   // const [loggedInUser, setLoggedInUser] = useState('');
  
@@ -31,6 +37,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
+
      <Routes>
       <Route path='/' element={<Layout/>}>
       <Route index element={<UserHome/>}></Route>
@@ -49,10 +56,15 @@ function App() {
           <Route path='/display-booking' element={<DisplayBooking/>}/>
           <Route path='/add-staff' element={<AddStaff/>}/>
           <Route path='/display-staff' element={<DisplayStaff/>}/>
+          <Route path="/AddRating" element={<AddRating />} />
+          <Route path="/ratingtable" element={<RatingTable />} />
+          <Route path="/ratingtableCarModel" element={<CarRatingComponent />} />
+          <Route path="/ratingtableCustomerMail" element={<CustomerRatingComponent />} />
       <Route path='*' element={<NoPageFound/>}></Route>
       </Route>
      </Routes>
      </BrowserRouter>
+        
     </div>
   );
 }
