@@ -14,7 +14,20 @@ import DisplayBooking from './admin/DisplayBooking';
 import AddStaff from './admin/AddStaff';
 import DisplayStaff from './admin/DisplayStaff';
 import UpdateCar from './admin/UpdateCar';
+import DisplayCustomer from './customerComponents/DisplayCustomer';
+import UpdateCustomer from './customerComponents/UpdateCustomer';
+import UserLogin from './customerComponents/UserLogin';
+import { useState } from 'react';
+
+import CustomerService from './services/CustomerService';
+import AddCustomer from './customerComponents/AddCustomer';
+
+
 function App() {
+  // const [loggedInUser, setLoggedInUser] = useState('');
+ 
+ 
+          
   return (
     <div className="App">
       <BrowserRouter>
@@ -25,6 +38,11 @@ function App() {
       <Route path='/booking' element={<CreateNewBooking/>}></Route>
       <Route path='/booking/user' element={<ViewCustomerBooking/>}></Route>
       <Route path='/profile' element={<Profile/>}></Route>
+          <Route path='/login' element={<UserLogin />}></Route>
+
+          <Route path='/customer' element={<AddCustomer />}></Route>
+          <Route path='/displayCustomer' element={<DisplayCustomer  />} ></Route>
+          <Route path='/update-customer' element={<UpdateCustomer/>}></Route>
           <Route path='/add-car' element={<AddCar/>}/>
           <Route path='/display-car' element={<DisplayCar/>}/>
           <Route path='/update-car' element={<UpdateCar/>}/>
