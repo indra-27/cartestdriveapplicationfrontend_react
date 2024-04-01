@@ -1,23 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter, Route, Routes,Link } from 'react-router-dom';
+import AddRating from './AddRating';
+import RatingTable from './RatingTable';
+import CarRatingComponent from './CarRatingComponent';
+import CustomerRatingComponent from './CustomerRatingComponent';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <nav>
+          <ul>
+            <li><Link to="/AddRating">Add Rating</Link></li>
+            <li><Link to="/ratingtable">Rating Table</Link></li>
+            <li><Link to="/ratingtableCarModel">Car Rating Table</Link></li>
+            <li><Link to="/ratingtableCustomerMail">Customer Rating Table</Link></li>
+          </ul>
+        </nav>
+        <Routes>
+          <Route path="/" element={<AddRating />} />
+          <Route path="/AddRating" element={<AddRating />} />
+          <Route path="/ratingtable" element={<RatingTable />} />
+          <Route path="/ratingtableCarModel" element={<CarRatingComponent />} />
+          <Route path="/ratingtableCustomerMail" element={<CustomerRatingComponent />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
