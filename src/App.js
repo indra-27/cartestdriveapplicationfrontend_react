@@ -8,26 +8,22 @@ import Layout from './userside/component/Layout';
 import CreateNewBooking from './userside/component/CreateNewBooking';
 import ViewCustomerBooking from './userside/component/ViewCustomerBooking';
 import Profile from './userside/component/Profile';
-import LayoutAdmin from './admin/LayoutAdmin';
 import AddCar from './admin/AddCar';
 import DisplayCar from './admin/DisplayCar';
 import DisplayBooking from './admin/DisplayBooking';
 import AddStaff from './admin/AddStaff';
 import DisplayStaff from './admin/DisplayStaff';
 import UpdateCar from './admin/UpdateCar';
-import DisplayCustomer from './customerComponents/DisplayCustomer';
-import UpdateCustomer from './customerComponents/UpdateCustomer';
-import UserLogin from './customerComponents/UserLogin';
-import { useState } from 'react';
-
-import CustomerService from './services/CustomerService';
-import AddCustomer from './customerComponents/AddCustomer';
+import DisplayCustomer from './userside/component/DisplayCustomer';
+import UpdateCustomer from './userside/component/UpdateCustomer';
+import UserLogin from './userside/component/UserLogin';
+import AddCustomer from './userside/component/AddCustomer';
 
 
-import AddRating from './AddRating';
-import RatingTable from './RatingTable';
-import CarRatingComponent from './CarRatingComponent';
-import CustomerRatingComponent from './CustomerRatingComponent';
+import AddRating from './userside/component/AddRating';
+import RatingTable from './userside/component/RatingTable';
+import CarRatingComponent from './userside/component/CarRatingComponent';
+import CustomerRatingComponent from './userside/component/CustomerRatingComponent';
 
 function App() {
   // const [loggedInUser, setLoggedInUser] = useState('');
@@ -41,8 +37,8 @@ function App() {
      <Routes>
       <Route path='/' element={<Layout/>}>
       <Route index element={<UserHome/>}></Route>
-      <Route path='/cardetail' element={<CarDetails/>}></Route>
-      <Route path='/booking' element={<CreateNewBooking/>}></Route>
+      <Route path='/cardetail/:modelName' element={<CarDetails/>}></Route>
+      <Route path='/booking/:modelName' element={<CreateNewBooking/>}></Route>
       <Route path='/booking/user' element={<ViewCustomerBooking/>}></Route>
       <Route path='/profile' element={<Profile/>}></Route>
           <Route path='/login' element={<UserLogin />}></Route>
@@ -56,7 +52,7 @@ function App() {
           <Route path='/display-booking' element={<DisplayBooking/>}/>
           <Route path='/add-staff' element={<AddStaff/>}/>
           <Route path='/display-staff' element={<DisplayStaff/>}/>
-          <Route path="/AddRating" element={<AddRating />} />
+          <Route path="/AddRating/:modelName" element={<AddRating />} />
           <Route path="/ratingtable" element={<RatingTable />} />
           <Route path="/ratingtableCarModel" element={<CarRatingComponent />} />
           <Route path="/ratingtableCustomerMail" element={<CustomerRatingComponent />} />

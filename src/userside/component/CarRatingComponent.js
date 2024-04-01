@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import RatingService from "./service/RatingService";
+import RatingService from "../services/RatingService";
 
 const CarRatingComponent = () => {
   const [ratings, setRatings] = useState([]);

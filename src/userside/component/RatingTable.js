@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import RatingService from "./service/RatingService";
-import '../src/RatingTable.css';
+import RatingService from "../services/RatingService";
+import './RatingTable.css';
 const RatingTable = () => {
   const [ratings, setRatings] = useState([]);
 

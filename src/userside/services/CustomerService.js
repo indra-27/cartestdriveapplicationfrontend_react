@@ -1,4 +1,4 @@
-import { axiosInstance } from "../axios-http-client";
+import { axiosInstance } from "../../axios-http-client";
 
 
 

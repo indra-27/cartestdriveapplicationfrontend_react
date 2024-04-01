@@ -1,14 +1,23 @@
 import React, { useState, useEffect } from "react";
-import RatingService from "./service/RatingService";
+import RatingService from "../services/RatingService";
 
 
 const CustomerRatingComponent = () => {
+  
   const [ratings, setRatings] = useState([]);
   const [customerMailId, setCustomerMailId] = useState("");
   const [carModel, setCarModel] = useState("");
 
-  const fetchRatings = (mailId) => {
-      RatingService.getRatingByCustomerMailID(mailId)
+
+  useEffect(() => {
+    //Runs only on the first render
+ const customerEmail=  localStorage.getItem("customerEmail");
+
+    setCustomerMailId(customerEmail);
+}, []);
+
+  const fetchRatings = (customerEmailId) => {
+      RatingService.getRatingByCustomerMailID(customerEmailId)
       .then(response => {
         setRatings(response.data);
         if (response.data.length > 0) {
@@ -26,9 +35,9 @@ const CustomerRatingComponent = () => {
     }
   }, [customerMailId]);
 
-  const handleCustomerMailIdChange = (e) => {
-    setCustomerMailId(e.target.value);
-  };
+  // const handleCustomerMailIdChange = (e) => {
+  //   setCustomerMailId(e.target.value);
+  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -37,15 +46,15 @@ const CustomerRatingComponent = () => {
 
   return (
     <div>
-      <h2>Ratings for Customer: {customerMailId}</h2>
-      <h3>Car Model: {carModel}</h3>
+      <h3>Ratings</h3>
+      {/* <h3>Car Model: {carModel}</h3>
       <form onSubmit={handleSubmit}>
         <label>
           Enter Customer Email ID:
-          <input type="text" value={customerMailId} onChange={handleCustomerMailIdChange} />
+          <input type="text" value={customerMailId} />
         </label>
         <button type="submit">Fetch Ratings</button>
-      </form>
+      </form> */}
       <table>
         <thead>
           <tr>

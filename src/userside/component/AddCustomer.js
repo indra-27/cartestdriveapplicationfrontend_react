@@ -1,7 +1,6 @@
 import { useState } from "react";
 import CustomerService from "../services/CustomerService";
 import React from "react";
-import { Form, Button,Row } from 'react-bootstrap';
 import './AddCustomer.css';
 import { useNavigate } from "react-router-dom";
 

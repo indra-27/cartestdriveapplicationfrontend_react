@@ -1,7 +1,11 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import BookingService from "../services/BookingService";
 import './CreateNewBooking.css'
+import { useParams } from "react-router-dom";
 function CreateNewBooking() {
+    let {modelName} = useParams();
+    let [customerEmail,setCustomerEmail] = useState('');
+    
     let [bookingInput, setBookingInput] = useState({
         "customerEmailId": '',
         "carModelName": '',
@@ -22,10 +26,18 @@ function CreateNewBooking() {
         'status':''
     });
 
+
     let [message, setMessage] = useState("");
     let [errorMessage, setErrorMessage] = useState("");
 
+    useEffect(() => {
+        //Runs only on the first render
+     const customerEmail=  localStorage.getItem("customerEmail");
 
+        setCustomerEmail(customerEmail);
+    }, []);
+
+    
     const handleBookingChange = (e) => {
         setBookingInput({ ...bookingInput, [e.target.name]: e.target.value });
         // setBookingOutput({ ...bookingOutput, [e.target.carModelName]: e.target.value });
@@ -35,7 +47,10 @@ function CreateNewBooking() {
     
 
     }
+    bookingInput.customerEmailId = customerEmail;
+    bookingInput.carModelName = modelName;
 
+    console.log(JSON.stringify(bookingInput));
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(bookingInput);
@@ -71,16 +86,16 @@ function CreateNewBooking() {
             }
 
 
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="forms">
                 <table className="tables">
                     <tbody>
                     <tr>
                         <td><label>Email ID</label></td>
-                        <td><input type="email" name="customerEmailId" value={bookingInput.customerEmailId} onChange={handleBookingChange}  pattern="^[a-z0-9]{3,}@[a-z]{3,5}.[a-z]{2,3}$"  required  title="Email should be a valid one" ></input></td>
+                        <td><input type="email" name="customerEmailId" value={customerEmail} disabled></input></td>
                     </tr>
                     <tr>
                         <td><label>Car Model Name</label></td>
-                        <td><input type="text" name="carModelName" value={bookingInput.carModelName} onChange={handleBookingChange} required pattern="[a-zA-Z ]{3,16}" title="Name should contain min 3 & max 16 chars."></input></td>
+                        <td><input type="text" name="carModelName" value={modelName} onChange={handleBookingChange}  disabled></input></td>
                     </tr>
                     <tr>
                     <td><label>Slot No</label></td>
@@ -98,7 +113,7 @@ function CreateNewBooking() {
                     
                     
                 </table>
-                <button type="submit">Book</button>
+                <button className="subbtn" type="submit">Book</button>
             </form>
         </>
     );

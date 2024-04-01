@@ -59,7 +59,7 @@ function UpdateCustomer({ customer, onUpdateCompletion }) {
             }
 
 
-            <form onSubmit={handleUpdate}>
+            <form className="displayform" onSubmit={handleUpdate}>
                <label htmlFor="customerName">CustomerName</label>
                     <input type="text" name="customerName" value={updateCustomer.customerName} onChange={handleCustomerChange} required pattern="[a-zA-Z ]{3,16}" title="Name should contain min 3 & max 16 chars , no digits and special chars allowed."></input>
               
@@ -82,12 +82,13 @@ function UpdateCustomer({ customer, onUpdateCompletion }) {
                 <br>
                 </br>
                 <br></br>
-                <button type="submit">Update Account</button><br></br>
+                <button className="submitbtn" type="submit">Update Account</button><br></br>
                 <button onClick={onUpdateCompletion}>Back</button>
 
             </form>
             </div>
             </div>
+            
         </>
     )
 }
@@ -102,6 +103,8 @@ function DisplayCustomer() {
     // const DisplayCustomer = ({ customer }) => {
 
     //let accounts;
+    
+    
 
     let [customer, setCustomer] = useState([]);
     let [isUpdate, setIsUpdate] = useState(false);
@@ -205,11 +208,11 @@ function DisplayCustomer() {
                            <td>{customer.customerEmail}</td>
                            
                         </tr>
-                        <tr>
+                        {/* <tr>
                            <td id="head">Password:</td>
                            <td>{customer.password}</td>
                            
-                        </tr>
+                        </tr> */}
                         
                     
                    
@@ -220,7 +223,9 @@ function DisplayCustomer() {
                 </br>
                
                 <button onClick={() => handleUpdate(customer)} id="updbtn">Update</button>&nbsp;&nbsp;
-              <button onClick={() => handleDelete(customer.customerEmail)} id="delbtn">Delete</button>
+              <button onClick={() => handleDelete(customer.customerEmail)} id="delbtn">Delete</button>&nbsp;&nbsp;
+              <button onClick={()=>navigate('/booking/user')}>View Bookings</button>&nbsp;&nbsp;
+              <button onClick={()=>navigate('/ratingtableCustomerMail')}>View Ratings</button>
 
 </div>
                       

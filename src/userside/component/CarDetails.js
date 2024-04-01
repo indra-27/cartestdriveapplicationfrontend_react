@@ -2,7 +2,10 @@ import { useEffect } from "react";
 import { useState } from "react";
 import carServices from "../services/CarServices";
 import './CarDetails.css';
+import { useParams } from "react-router-dom";
 export default function CarDetails() {
+    let {modelName} = useParams();
+    // console.log(modelName);
     let [carModelName, setCarModelName] = useState("");
     let [car, setCar] = useState({});
 
@@ -17,7 +20,7 @@ export default function CarDetails() {
 
     const loadAllData = () => {
 
-        carServices.getCarDetailsByModelName(carModelName)
+        carServices.getCarDetailsByModelName(modelName)
             .then(
                 (resp) => {
                     console.log(resp.data);
@@ -39,13 +42,18 @@ export default function CarDetails() {
 
     return (
         <>
-            <h5>Car details </h5>
+        {
+            loadAllData()
+        }
+            {/* <h5>Car details </h5>
             <form onSubmit={handleSubmit}>
                 <label>ModelName</label>
                 <input type="text" value={carModelName} onChange={(e) => setCarModelName(e.target.value)}></input>
                 <button type="submit" onClick={loadAllData} >Submit</button>
-            </form>
+            </form> */}
             {
+                
+                
                 car ? <CarTable car={car}/> : <h3></h3>
             }
 

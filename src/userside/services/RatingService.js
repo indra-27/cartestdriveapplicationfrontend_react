@@ -1,4 +1,4 @@
-import {axiosInstance} from "./axios-https-client"
+import { axiosInstance } from "./axios-http-client";
 class RatingService{
 
     getAllRating(){

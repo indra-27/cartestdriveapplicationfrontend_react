@@ -5,7 +5,6 @@ table,td
     border-collapse: collapse;
     border-style: groove;
     vertical-align:top;
-    min-width: 300px;
     height: 40px;
     justify-items: center;
     align-items: center;
@@ -37,7 +36,8 @@ label {
   input[type="email"],
  input[type="text"],
  input[type="number"],
-  input[type="password"] {
+  input[type="password"],
+  input[type="date"] {
   width: 100%;
   padding: 12px 20px;
   margin: 2px 0;
@@ -46,7 +46,7 @@ label {
   border-radius: 4px;
   }
   
-  button[type="submit"] {
+   .submitbtn {
   background-color:blue ;
   color: white;
   border: none;

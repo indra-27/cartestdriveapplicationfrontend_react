@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import RatingService from "./service/RatingService";
+import React, { useState,useEffect } from "react";
+import RatingService from "../services/RatingService";
+import { useParams } from "react-router-dom";
 const AddRating = () => {
   const [rating, setRating] = useState({
     customerEmailId: "",
@@ -7,6 +8,20 @@ const AddRating = () => {
     comments: "",
     carModelName: ""
   });
+
+  let {modelName}= useParams();
+  let [customerEmail,setCustomerEmail] = useState("");
+  useEffect(() => {
+    //Runs only on the first render
+ const customerEmail=  localStorage.getItem("customerEmail");
+
+    setCustomerEmail(customerEmail);
+}, []);
+rating.customerEmailId=customerEmail;
+rating.carModelName = modelName;
+
+
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -34,7 +49,7 @@ const AddRating = () => {
       <form onSubmit={handleSubmit}>
         <label>
           Customer Email ID:
-          <input type="text" name="customerEmailId" value={rating.customerEmailId} onChange={handleChange} />
+          <input type="text" name="customerEmailId" value={customerEmail} disabled/>
         </label>
         <br />
         <label>
@@ -49,7 +64,7 @@ const AddRating = () => {
         <br />
         <label>
           Car Model Name:
-          <input type="text" name="carModelName" value={rating.carModelName} onChange={handleChange} />
+          <input type="text" name="carModelName" value={modelName} disabled/>
         </label>
         <br />
         <button type="submit">Submit Rating</button>

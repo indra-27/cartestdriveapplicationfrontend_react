@@ -1,8 +1,9 @@
-table {
+.booktable {
     margin-top: 3%;
     border-collapse: collapse; 
-    width: 100%;
+    min-width: 100px;
     font-family: Arial, sans-serif; 
+
   }
   
   th {

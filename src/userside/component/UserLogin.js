@@ -13,6 +13,7 @@ const navigate=useNavigate();
 
   const handleLogin =  (e) => {
     e.preventDefault();
+    // location.reload();
 
     const loginDto = {userName: userName, password:password }; // Corrected to use state variables directly
     CustomerService.login(loginDto)
@@ -45,14 +46,14 @@ const navigate=useNavigate();
 {
     errorMessage && <h3 className="alert alert-danger">{errorMessage}</h3>
 }
-    <form onSubmit={handleLogin}>
+    <form onSubmit={handleLogin} className='formlogin'>
     
       <label htmlFor="email">UserName: </label>
       <input type="email" id="email" value={userName} onChange={(e) => setUserName(e.target.value)} placeholder='Enter your Email' required pattern="[A-Za-z0-9. _]{3,}[@A-Za-z]{3,}.[a-z]{2,3}" title='Email is not valid (e.g.name@ford.com)'/>
       <label htmlFor="password">Password: </label>
       <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder='Enter your password' required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters"></input>
   <br></br><br></br>
-      <button type="submit">Login</button>
+      <button className='submitbtn' type="submit">Login</button>
     </form>
 
     </>

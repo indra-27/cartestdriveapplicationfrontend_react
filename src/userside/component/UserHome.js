@@ -22,9 +22,9 @@ function CarCards({carArray}) {
                                         <p className="card-text">{car.description}</p>
                                     </div>
                                     <div className="card-body">
-                                        <button className="card-link btn btn-dark" onClick={()=>navigate('cardetail')}>Details</button>
-                                        <button className="card-link btn btn-primary" onClick={()=>navigate('/booking')} >Book Now</button>
-                                        <button className="card-link btn btn-dark" > Rate Now</button>
+                                        <button className="card-link btn btn-dark" onClick={()=>navigate('cardetail/'+car.modelName)}>Details</button>
+                                        <button className="card-link btn btn-primary" onClick={()=>navigate('/booking/'+car.modelName)} >Book Now</button>
+                                        <button className="card-link btn btn-dark" onClick={()=>navigate('/AddRating/'+car.modelName)}> Rate Now</button>
                                     </div>
                                 </div> 
                         )

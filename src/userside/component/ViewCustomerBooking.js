@@ -88,18 +88,18 @@ function BookTable({bookingOutput, handleDelete, handleUpdate})
     return (
         <>
         {/* {JSON.stringify(bookingOutput)} */}
-        <table>
+        <table className="booktable">
             <thead>
             <tr>
-                <th>Book Id</th>
-                <th>Customer EmailId</th>
+                {/* <th>Book Id</th>
+                <th>Customer EmailId</th> */}
                 <th>Car Model Name</th>
                 <th>Slot No</th>
                 <th>Test Drive Booking Date</th>
                 <th>Booking Date</th>
                 <th>Staff Name</th>
                 <th>Staff Mobile Number</th>
-                <th>Status</th>
+                
                 <th></th>
                 <th></th>
             </tr>
@@ -108,8 +108,8 @@ function BookTable({bookingOutput, handleDelete, handleUpdate})
             {
                 bookingOutput.map((book)=>(
                 <tr key={book.bookId}>
-                <td>{book.bookId}</td>
-                <td>{book.customerEmailId}</td>
+                {/* <td>{book.bookId}</td>
+                <td>{book.customerEmailId}</td> */}
                 <td>{book.carModelName}</td>
                 <td>{book.slotNo}</td>
                 <td>{book.date}</td>
@@ -130,7 +130,7 @@ function BookTable({bookingOutput, handleDelete, handleUpdate})
 }
 
 export default function ViewCustomerBooking() {
-    let [customerEmail, setcustomerEmail] = useState("");
+    //let [customerEmail, setcustomerEmail] = useState("");
     let [bookingOutput, setBookingOutput] = useState([]);
     
     let [isUpdate, setIsUpdate] = useState(false);
@@ -142,6 +142,14 @@ export default function ViewCustomerBooking() {
         "bookingDate": ''
     });
 
+    useEffect(() => {
+        //Runs only on the first render
+     const customerEmail=  localStorage.getItem("customerEmail");
+
+        loadAllData(customerEmail);
+    }, []);
+    
+
     // useEffect(() => {
     //     //Runs only on the first render
     //     loadAllData();
@@ -151,8 +159,8 @@ export default function ViewCustomerBooking() {
         e.preventDefault();
     }
 
-    const loadAllData = () => {
-
+    const loadAllData = (customerEmail) => {
+        console.log("Email"+customerEmail);
         bookingService.getAllUserBookingByEmail(customerEmail)
             .then(
                 (resp) => {
@@ -199,12 +207,12 @@ export default function ViewCustomerBooking() {
 
     return (
         <>
-            <h5>My Bookings</h5>
+            {/* <h5>My Bookings</h5>
             <form onSubmit={handleSubmit}>
                 <label>Mail Id</label>
                 <input type="text" value={customerEmail} onChange={(e) => setcustomerEmail(e.target.value)}></input>
                 <button type="submit" onClick={loadAllData} >Submit</button>
-            </form>
+            </form> */}
             {
                 isUpdate ? <UpdateBooking bookingInput={updateBooking} onUpdateCompletion={() => { setIsUpdate(false); loadAllData() }}></UpdateBooking> :
                 bookingOutput ? <BookTable bookingOutput={bookingOutput} handleDelete={handleDelete} handleUpdate={handleUpdate} /> : <h3></h3>
