@@ -1,0 +1,25 @@
+.booktable {
+    margin-top: 3%;
+    border-collapse: collapse; 
+    min-width: 100px;
+    font-family: Arial, sans-serif; 
+
+  }
+  
+  th {
+    background-color: #f2f2f2; 
+    text-align: left; 
+    padding: 8px; 
+    border: 1px solid #ddd; 
+  }
+  
+  td {
+    padding: 8px; 
+    border: 1px solid #ddd;
+  }
+  
+ 
+  tr:nth-child(even) {
+    background-color: #f9f9f9; 
+  }
+  

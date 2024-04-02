@@ -1,0 +1,15 @@
+*{
+    background-color: azure;
+}
+.form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+td{
+    height: 50px;
+}
+/* button{
+    margin-top: 550px;
+    margin-left: 1%;
+} */

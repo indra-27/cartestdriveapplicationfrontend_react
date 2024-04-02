@@ -1,0 +1,74 @@
+table,td
+{
+    margin-top: 3%;
+    border: 3px solid black;
+    border-collapse: collapse;
+    border-style: groove;
+    vertical-align:top;
+    height: 40px;
+    justify-items: center;
+    align-items: center;
+    /* padding-left: 50%; */
+   
+}
+#btn{
+    width: 250px;
+    margin-left: 500px;
+    margin-top: 5%;
+}
+table{
+  padding-left: 50%;
+}
+.button{
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  margin-top: 2%;
+  margin-left: 21%;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  }
+  
+  input[type="email"],
+ input[type="text"],
+ input[type="number"],
+  input[type="password"],
+  input[type="date"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 2px 0;
+  box-sizing:border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  }
+  
+   .submitbtn {
+  background-color:blue ;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  margin: auto;
+  display: flex;
+  display: grid;
+  justify-content: center;
+  
+  }
+
+  #updbtn{
+    background-color: lightgreen;
+  }
+
+  #delbtn{
+    background-color:lightcoral;
+  }
+
+  #head{
+    color: red;
+  }
