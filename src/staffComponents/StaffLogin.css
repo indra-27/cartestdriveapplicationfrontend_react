@@ -1,0 +1,54 @@
+
+
+.staffform {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border: 1px solid #e5e5e5;
+    border-radius: 2px;
+    }
+    
+    label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    }
+    
+    input[type="email"],
+   
+    input[type="password"] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 2px 0;
+    box-sizing:border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    }
+    
+    button[type="submit"] {
+    background-color: blue;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    margin: auto;
+    display: flex;
+    display: grid;
+    justify-content: center;
+    
+    }
+
+    #password{
+        text-align: center;
+        display: grid;
+        display: flex;
+        justify-content: center;
+        color:blue;
+    }
+    
+    
+    
+    

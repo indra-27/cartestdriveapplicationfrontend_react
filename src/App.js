@@ -1,5 +1,4 @@
 import './App.css';
-
 import UserHome from './userside/component/UserHome';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import NoPageFound from './userside/component/NoPageFound';
@@ -25,6 +24,11 @@ import RatingTable from './userside/component/RatingTable';
 import CarRatingComponent from './userside/component/CarRatingComponent';
 import CustomerRatingComponent from './userside/component/CustomerRatingComponent';
 
+import StaffLogin from './staffComponents/StaffLogin';
+
+import UpdateStaff from './staffComponents/UpdateStaff';
+import StaffBookings from './staffComponents/StaffBookings';
+
 function App() {
   // const [loggedInUser, setLoggedInUser] = useState('');
  
@@ -33,6 +37,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
+
 
      <Routes>
       <Route path='/' element={<Layout/>}>
@@ -56,7 +61,13 @@ function App() {
           <Route path="/ratingtable" element={<RatingTable />} />
           <Route path="/ratingtableCarModel" element={<CarRatingComponent />} />
           <Route path="/ratingtableCustomerMail" element={<CustomerRatingComponent />} />
-      <Route path='*' element={<NoPageFound/>}></Route>
+          <Route path='/staff' element={<AddStaff/>}></Route>
+          <Route path='/login' element={<StaffLogin/>}></Route>
+          <Route path='/displaystaff' element={<DisplayStaff/>}></Route>
+          <Route path='/updatestaff' element={<UpdateStaff/>}></Route>
+          <Route path='/staffBookings' element={<StaffBookings/>}></Route>
+
+          <Route path='*' element={<NoPageFound/>}></Route>
       </Route>
      </Routes>
      </BrowserRouter>

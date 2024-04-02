@@ -1,10 +1,12 @@
 *{
     background-color: azure;
 }
-.form{
-    display: flex;
+.forms{
+    /* display: flex; */
     align-items: center;
     justify-content: center;
+    width: 200px;
+    margin-left: 30%;
 }
 td{
     height: 50px;
