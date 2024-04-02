@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import StaffService from '../service/StaffService';
+import StaffService from './service/StaffService';
 
 const UpdateStaff = ({ staff }) => {
    

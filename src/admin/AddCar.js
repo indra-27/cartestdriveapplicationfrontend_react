@@ -56,7 +56,7 @@ export default function AddCar() {
             {
                 errorMessage && <h3 className="alert alert-danger">{errorMessage}</h3>
             }
-            <form className="form">
+            <form className="forms">
                 <table className="tables">
                     <tr>
                         <td><label>Car Model Name:</label></td>

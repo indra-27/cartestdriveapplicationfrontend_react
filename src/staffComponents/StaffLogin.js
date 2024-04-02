@@ -1,6 +1,6 @@
 import './StaffLogin.css';
 import React, { useState } from 'react';
-import StaffService from '../service/StaffService';
+import StaffService from './service/StaffService';
 const StaffLogin = () => {
     const [staffEmail, setStaffEmail] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
@@ -23,7 +23,7 @@ const StaffLogin = () => {
     };
 
     return (
-        <form onSubmit={handleLogin}>
+        <form onSubmit={handleLogin} className='staffform'>
             <label>
                 Staff Email:
                 <input type="email" value={staffEmail} onChange={(e) => setStaffEmail(e.target.value)} />

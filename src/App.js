@@ -24,9 +24,8 @@ import RatingTable from './userside/component/RatingTable';
 import CarRatingComponent from './userside/component/CarRatingComponent';
 import CustomerRatingComponent from './userside/component/CustomerRatingComponent';
 
-import AddStaff from './staffComponents/AddStaff';
 import StaffLogin from './staffComponents/StaffLogin';
-import DisplayStaff from './staffComponents/DisplayStaff';
+
 import UpdateStaff from './staffComponents/UpdateStaff';
 import StaffBookings from './staffComponents/StaffBookings';
 
